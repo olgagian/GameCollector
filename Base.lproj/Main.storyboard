@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kHu-tq-6Ck">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GameCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,9 +23,105 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="v3C-0p-kq5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QWB-EY-jpa">
+                            <connections>
+                                <segue destination="ahZ-vv-VV6" kind="show" id="nhK-nq-9GC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="u1l-pM-thR">
+            <objects>
+                <viewController id="ahZ-vv-VV6" customClass="GameViewController" customModule="GameCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ruW-wt-Ud7"/>
+                        <viewControllerLayoutGuide type="bottom" id="86e-SX-wat"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hlX-pj-lwz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nerdy-facebook-avatars-2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tlu-mY-A06">
+                                <rect key="frame" x="47" y="84" width="280" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Zqg-f2-X5H"/>
+                                    <constraint firstAttribute="width" constant="280" id="fVG-1X-IaZ"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c1U-gx-3Cz">
+                                <rect key="frame" x="47.5" y="253" width="280" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44y-eN-R2U">
+                                <rect key="frame" x="172" y="303" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="ahZ-vv-VV6" eventType="touchUpInside" id="yOJ-o8-Lxe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="44y-eN-R2U" firstAttribute="top" secondItem="c1U-gx-3Cz" secondAttribute="bottom" constant="20" id="3tC-mz-dEM"/>
+                            <constraint firstItem="c1U-gx-3Cz" firstAttribute="centerX" secondItem="hlX-pj-lwz" secondAttribute="centerX" id="6Ke-ez-VFu"/>
+                            <constraint firstItem="44y-eN-R2U" firstAttribute="centerX" secondItem="hlX-pj-lwz" secondAttribute="centerX" id="IXX-fB-6Vt"/>
+                            <constraint firstItem="tlu-mY-A06" firstAttribute="centerX" secondItem="hlX-pj-lwz" secondAttribute="centerX" id="Inb-Hb-r7v"/>
+                            <constraint firstItem="tlu-mY-A06" firstAttribute="top" secondItem="ruW-wt-Ud7" secondAttribute="bottom" constant="20" id="gsx-Y8-DB9"/>
+                            <constraint firstItem="c1U-gx-3Cz" firstAttribute="width" secondItem="tlu-mY-A06" secondAttribute="width" id="ibi-8c-uP4"/>
+                            <constraint firstItem="c1U-gx-3Cz" firstAttribute="top" secondItem="tlu-mY-A06" secondAttribute="bottom" constant="19" id="orQ-Ka-nJi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5Qr-Vu-YRD">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="dyK-Wy-HYs">
+                                <connections>
+                                    <action selector="cameraTapped:" destination="ahZ-vv-VV6" id="RPi-7e-Avh"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Photos" id="K20-Zf-1jw">
+                                <connections>
+                                    <action selector="photosTapped:" destination="ahZ-vv-VV6" id="zD2-KY-utq"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="gameImageView" destination="tlu-mY-A06" id="PRt-JE-OZU"/>
+                        <outlet property="titleTextField" destination="c1U-gx-3Cz" id="gdK-yp-bwU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bT0-k2-jV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="135"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xyV-MV-xYk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kHu-tq-6Ck" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oGT-WG-gMX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cFf-0V-phO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UC5-0d-uHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="194" y="97"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nerdy-facebook-avatars-2.jpg" width="266" height="266"/>
+    </resources>
 </document>
