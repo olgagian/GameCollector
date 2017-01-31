@@ -46,5 +46,28 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return cell
     }
 
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let game = games[indexPath.row]
+        performSegue(withIdentifier: "gameSeque", sender: game)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! GameViewController
+        nextVC.game = sender as? Game
+        
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let game = games[indexPath.row]
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            context.delete(game)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            do {
+                games = try context.fetch(Game.fetchRequest())
+               tableView.reloadData()
+            } catch {}
+        }
+    }
 }
 
